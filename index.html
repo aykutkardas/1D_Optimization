@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="opt.js"></script>
+  <script src="app.js"></script>
+  <meta charset="utf-8">
+  <title>RocketCut v1</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body ng-app="rocketCut">
+
+
+  <div class="material-add" ng-controller="materialList">
+    <h3>Malzeme Listesi</h3>
+    <table>
+      <tr>
+        <td>Malzeme</td>
+        <td>Limit</td>
+        <td>Baş/Son Payı</td>
+        <td>Testere Payı</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" ng-model="addMaterialInfo.name">
+        </td>
+        <td>
+          <input type="number" name="length" ng-model="addMaterialInfo.limit">
+        </td>
+        <td>
+          <input type="number" name="length" ng-model="addMaterialInfo.settings.g">
+        </td>
+        <td>
+          <input type="number" name="length" ng-model="addMaterialInfo.settings.kp">
+        </td>
+        <td>
+          <button ng-click="addMaterial()">Ekle</button>
+        </td>
+      </tr>
+      <tr ng-repeat="material in materialList" class="align-c">
+        <td ng-bind="material.name">Yükleniyor.</td>
+        <td ng-bind="material.limit"></td>
+        <td ng-bind="material.settings.g"></td>
+        <td ng-bind="material.settings.kp"></td>
+        <td></td>
+      </tr>
+    </table>
+    <h3>Kesim Listesi</h3>
+    <div class="cut-list-add" ng-controller="cutList">
+
+      <table>
+        <tr>
+          <td>Profil</td>
+          <td>Uzunluk</td>
+          <td>Adet</td>
+        </tr>
+        <tr ng-repeat="tmp in l" ng-keyup="newInputControl()">
+          <td>
+            <select material-select ng-model="tempCutList[$index].type"></select>
+          </td>
+          <td>
+            <input type="number" name="length" ng-model="tempCutList[$index].len">
+          </td>
+          <td>
+            <input type="number" name="length" ng-model="tempCutList[$index].q">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" style="text-align: center">
+            <button ng-click="addCutList()">Hesapla</button>
+            <button ng-click="l.push(l.length);">Profil Ekle</button>
+            <button ng-click="cleanCutList()">Temizle</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+
+  <div class="report-view" ng-controller="reportView">
+    <h3>Rapor</h3>
+    <table class="align-c" ng-repeat="report in reportData">
+
+      <tr>
+        <th colspan="2">Malzeme : {{report.name}}</th>
+      </tr>
+      <tr class="cutQuatity" ng-repeat="repData in report.data[0]">
+        <th>{{repData.q}} Kez</th>
+        <td>
+          <table>
+            <tr>
+              <th>Tip</th>
+              <th>Adet</th>
+            </tr>
+            <tr ng-repeat="repBlock in repData.block">
+              <td>{{repBlock.list}}</td>
+              <td>{{repBlock.q}}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</body>
+
+
+</html>

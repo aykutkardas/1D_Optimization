@@ -1,0 +1,71 @@
+    body {
+      background: #624646;
+      font-family: 'Roboto', sans-serif;
+    }
+    input,
+    select {
+      border: 1px solid #ddd;
+      outline: none;
+      padding: 5px;
+    }
+    select {
+      width: 120px;
+    }
+    input[name='length'] {
+      width: 50px;
+    }
+    table {
+      font-size: 8pt;
+      display: inline;
+    }
+    td {
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      padding: 5px;
+    }
+    th {
+      background: #ddd;
+      border-bottom: 1px solid #ccc;
+      font-weight: bold;
+      padding: 5px;
+    }
+    h3 {
+      background: #ddd;
+      border-bottom: 2px solid #ccc;
+      padding: 5px;
+      font-weight: 400;
+      font-size: 12pt;
+    }
+    .material-add,
+    .report-view,
+    .cut-list-add {
+      background: whitesmoke;
+      width: 550px;
+      height: auto;
+      padding: 10px;
+      margin: 20px auto;
+      display: block;
+    }
+    .cut-list-add {
+      width: 300px;
+    }
+    button {
+      background: #a46853;
+      border: 3px solid #a46853;
+      padding: 4px 12px;
+      color: white;
+      font-family: 'Arial';
+      font-size: 9pt;
+      box-shadow: 0px 0px 2px grey;
+      cursor: pointer;
+      outline: none;
+    }
+    .align-c {
+      text-align: center;
+    }
+    .report-view table {
+      width: 1000px;
+    }
+    .report-view table td {
+      border: 1px solid gray;
+    }
